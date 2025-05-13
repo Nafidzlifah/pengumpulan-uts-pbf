@@ -18,20 +18,18 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cluster_perumahan`
---
+-- Database: cluster_perumahan
+CREATE DATABASE IF NOT EXISTS cluster_perumahan;
+USE Cluster_perumahan;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `ketua_rt`
---
+-- Drop if exists
+DROP TABLE IF EXISTS `ketua_rt`;
 
 CREATE TABLE `ketua_rt` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `nama` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `no_hp` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL UNIQUE,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `periode_mulai` year NOT NULL,
   `periode_selesai` year NOT NULL,
@@ -39,11 +37,6 @@ CREATE TABLE `ketua_rt` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `migrations`
---
 
 CREATE TABLE `migrations` (
   `id` int UNSIGNED NOT NULL,
